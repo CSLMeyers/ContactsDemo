@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  ContactsDemo
+//
+//  Created by myang on 2018/11/29.
+//  Copyright © 2018年 myang. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define __IPHONE_OS_VERSION_SOFT_MAX_REQUIRED __IPHONE_7_0
+
+#define WIDTH_SCREEN        [UIScreen mainScreen].bounds.size.width
+#define HEIGHT_SCREEN       [UIScreen mainScreen].bounds.size.height
+
+#endif /* PrefixHeader_pch */
