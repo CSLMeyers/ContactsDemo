@@ -7,24 +7,8 @@ This project is mainly about two scrollviews interaction. When you drag one scro
 
 The simplest usage is to create a list of avatars and a list of introductions. Initialize a avatarScroll and a briefScroll, then set data to scrolls.
 
-```objc
-self.contactContainer.contactAvatar = [self collectImages];
-self.contactBriefView.models = [self.allContactsArray copy];
-```
+When you tap or click one contact, the contact will be located in the middle of the screen.
 
-you can choose which one is choosen by default.
-
-```objc
-[self.contactContainer chooseContactAt:1];
-```
-
-After you tap or click one contact, there is callbacks for you to do next work, like navigating to another viewcontroller.
-
-```objc
-- (void) avatarContainer:(YMMBaseScrollView *)avatarContainer didTapItem:(UIView *)view atIndex:(NSInteger)index
-
-- (void) briefView:(YMMBaseScrollView *)briefView didTapItem:(UIView *)view atIndex:(NSInteger)index
-```
 
 ## Animations
 

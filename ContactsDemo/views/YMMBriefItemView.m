@@ -1,5 +1,5 @@
 //
-//  YMMBriefView.m
+//  YMMBriefItemView.m
 //  ContactsDemo
 //
 //  Created by myang on 2018/11/29.
@@ -19,6 +19,25 @@
     // Drawing code
 }
 */
+
+- (void)setModel:(YMMContactModel *)model {
+    if (![model isKindOfClass:[YMMContactModel class]]) {
+        return;
+    }
+    
+    // combine first name and last name.
+    NSString *name = [model.first_name stringByAppendingFormat:@"%@%@", @" ", model.last_name];
+    NSMutableAttributedString *attrName = [[NSMutableAttributedString alloc] initWithString:name];
+    
+    [attrName addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:24.0] range:NSMakeRange(0, model.first_name.length)];
+    [attrName addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:24.0] range:NSMakeRange(model.first_name.length + 1, model.last_name.length)];
+    
+    self.nameLabel.attributedText = attrName;
+    
+    self.titleLabel.text = model.title;
+    
+    self.introductionLabel.text = model.introduction;
+}
 
 - (void) layoutSubviews {
     self.nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -62,6 +81,8 @@
     if (!_titleLabel) {
         UILabel *label = [[UILabel alloc] init];
         label.textAlignment = NSTextAlignmentCenter;
+        label.enabled = NO;
+        label.font = [UIFont systemFontOfSize:14.0];
         _titleLabel = label;
         
         [self addSubview:_titleLabel];
@@ -73,7 +94,7 @@
 - (UILabel *) aboutLabel {
     if (!_aboutLabel) {
         UILabel *label = [[UILabel alloc] init];
-        
+        label.font = [UIFont boldSystemFontOfSize:14.0];
         label.text = ABOUTSTRING;
         _aboutLabel = label;
         
@@ -86,6 +107,10 @@
 - (UILabel *) introductionLabel {
     if (!_introductionLabel) {
         YMMLabel *label = [[YMMLabel alloc] init];
+        label.numberOfLines = 0;
+        label.enabled = NO;
+        label.font = [UIFont systemFontOfSize:14.0];
+        label.verTextAlignment = YMMTextAlignmentTop;
         _introductionLabel = label;
         
         [self addSubview:_introductionLabel];

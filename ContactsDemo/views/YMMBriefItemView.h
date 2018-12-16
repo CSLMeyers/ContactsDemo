@@ -1,5 +1,5 @@
 //
-//  YMMBriefView.h
+//  YMMBriefItemView.h
 //  ContactsDemo
 //
 //  Created by myang on 2018/11/29.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YMMLabel.h"
+#import "YMMContactModel.h"
 
 @interface YMMBriefItemView : UIView
 
@@ -15,6 +16,8 @@
 @property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) UILabel *aboutLabel;
 @property (nonatomic) YMMLabel *introductionLabel;
+
+@property (nonatomic) YMMContactModel *model;
 
 @end
 
