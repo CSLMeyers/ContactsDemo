@@ -42,5 +42,6 @@ In consideration of  the changing of contacts, I've exposed options such as "del
 ```
 What's more, there is also works with lazy loading the contacts which are beyond the screen.
 
-2019/3/1
+
+更新： 2019/3/1
 
